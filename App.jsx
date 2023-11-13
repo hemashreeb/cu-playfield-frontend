@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator screenOptions={{headerShown: false}}>
         <Tab.Screen name="Home" component={Dashboard} />
         <Tab.Screen name="Login" component={Login} />
         <Tab.Screen name="SignUp" component={Signup} />
