@@ -1,20 +1,22 @@
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import {
-  SafeAreaView,
-  // ScrollView,
-  StatusBar,
-  // StyleSheet,
-  // Text,
-  // useColorScheme,
-  // View,
-} from 'react-native';
+import Dashboard from './src/screens/Dashboard/Dashboard';
+import Login from './src/screens/authentication/Login';
+import Signup from './src/screens/authentication/Signup';
+
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <StatusBar />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={Dashboard} />
+        <Tab.Screen name="Login" component={Login} />
+        <Tab.Screen name="SignUp" component={Signup} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
 
