@@ -1,12 +1,7 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  Text,
-  View,
-  TextInput,
-  Button,
-  StyleSheet,
-} from 'react-native';
+import {SafeAreaView, Text, View, TextInput, StyleSheet} from 'react-native';
+import {Button, Input, Icon} from '@rneui/themed';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const Login = () => {
   //const [value, setValue] = useState(0);
@@ -15,37 +10,41 @@ const Login = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        <Text style={styles.header}>Login Form</Text>
+    <SafeAreaView style={styles.grid}>
+      <View style={styles.container}>
+        <Text style={styles.header}>CU PlayField</Text>
+        <View style={styles.content}>
+          <Input placeholder="Enter Email" />
+          <Input placeholder="Password" secureTextEntry={true} />
+          <Button
+            title={'Login'}
+            // eslint-disable-next-line react-native/no-inline-styles
+            containerStyle={{
+              marginHorizontal: 10,
+              marginVertical: 10,
+            }}
+          />
+          <Button title="Sign Up" type="clear" />
+        </View>
       </View>
-      <TextInput style={styles.input} placeholder="Enter Email" />
-      <TextInput
-        style={styles.input}
-        secureTextEntry={true}
-        placeholder="Enter Password"
-      />
-      <Button style={styles.button} title="Submit" onPress={submitForm} />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  grid: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   container: {
-    marginTop: 100,
-    display: 'flex',
+    padding: 40,
   },
   header: {
-    fontSize: 40,
+    fontSize: 28,
+    color: 'steelblue',
     alignSelf: 'center',
-  },
-  input: {
-    paddingTop: 50,
-    paddingLeft: 30,
-    paddingRight: 30,
-  },
-  button: {
-    backgroundColor: 'blue',
+    fontWeight: 'bold',
+    marginVertical: 25,
   },
 });
 
