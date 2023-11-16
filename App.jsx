@@ -1,7 +1,9 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import {createMaterialBottomTabNavigator} from 'react-native-paper/react-navigation';
+import {Provider} from 'react-native-paper';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Dashboard from './src/screens/Dashboard/Dashboard';
 import Login from './src/screens/authentication/Login';
@@ -28,16 +30,31 @@ const AuthNavigator = () => {
 const BottomTabNavigator = createMaterialBottomTabNavigator();
 const BottomsTabNavigator = () => {
   return (
-    <BottomTabNavigator.Navigator>
+    <BottomTabNavigator.Navigator
+      initialRouteName="MainRoute"
+      activeColor="#ffffff"
+      // eslint-disable-next-line react-native/no-inline-styles
+      barStyle={{backgroundColor: 'steelblue'}}>
       <BottomTabNavigator.Screen
-        options={{headerShown: false}}
-        name="Dashboard"
+        name="Home"
         component={Dashboard}
+        options={{
+          // eslint-disable-next-line react/no-unstable-nested-components
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons name="home" color={color} size={26} />
+          ),
+        }}
       />
       <BottomTabNavigator.Screen
-        options={{headerShown: false}}
         name="Authenticate"
         component={AuthNavigator}
+        options={{
+          headerShown: false,
+          // eslint-disable-next-line react/no-unstable-nested-components
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons name="account" color={color} size={20} />
+          ),
+        }}
       />
     </BottomTabNavigator.Navigator>
   );
@@ -45,11 +62,11 @@ const BottomsTabNavigator = () => {
 
 const App = props => {
   return (
-    <>
+    <Provider>
       <NavigationContainer>
         <BottomsTabNavigator />
       </NavigationContainer>
-    </>
+    </Provider>
   );
 };
 
