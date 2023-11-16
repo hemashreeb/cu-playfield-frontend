@@ -5,6 +5,10 @@ import {Button, Input} from '@rneui/themed';
 import Signup from './Signup';
 
 const Login = ({navigation}) => {
+  const submitForm = () => {
+    console.log('Form Submitted');
+  };
+
   return (
     <SafeAreaView style={styles.grid}>
       <View style={styles.container}>
@@ -19,6 +23,7 @@ const Login = ({navigation}) => {
               marginHorizontal: 10,
               marginVertical: 10,
             }}
+            onPress={submitForm}
           />
           <Button
             title="Sign Up"
