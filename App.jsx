@@ -1,22 +1,55 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
 import Dashboard from './src/screens/Dashboard/Dashboard';
 import Login from './src/screens/authentication/Login';
 import Signup from './src/screens/authentication/Signup';
 
-const Tab = createBottomTabNavigator();
-
-const App = () => {
+const AuthStackNavigator = createNativeStackNavigator();
+const AuthNavigator = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator screenOptions={{headerShown: false}}>
-        <Tab.Screen name="Home" component={Dashboard} />
-        <Tab.Screen name="Login" component={Login} />
-        <Tab.Screen name="SignUp" component={Signup} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <AuthStackNavigator.Navigator>
+      <AuthStackNavigator.Screen
+        options={{headerShown: false}}
+        name="Login"
+        component={Login}
+      />
+      <AuthStackNavigator.Screen
+        options={{headerShown: false}}
+        name="Signup"
+        component={Signup}
+      />
+    </AuthStackNavigator.Navigator>
+  );
+};
+
+const BottomTabNavigator = createMaterialBottomTabNavigator();
+const BottomsTabNavigator = () => {
+  return (
+    <BottomTabNavigator.Navigator>
+      <BottomTabNavigator.Screen
+        options={{headerShown: false}}
+        name="Dashboard"
+        component={Dashboard}
+      />
+      <BottomTabNavigator.Screen
+        options={{headerShown: false}}
+        name="Authenticate"
+        component={AuthNavigator}
+      />
+    </BottomTabNavigator.Navigator>
+  );
+};
+
+const App = props => {
+  return (
+    <>
+      <NavigationContainer>
+        <BottomsTabNavigator />
+      </NavigationContainer>
+    </>
   );
 };
 
