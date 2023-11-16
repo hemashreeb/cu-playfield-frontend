@@ -32,7 +32,8 @@ const BottomsTabNavigator = () => {
   return (
     <BottomTabNavigator.Navigator
       initialRouteName="MainRoute"
-      activeColor="#ffffff"
+      activeColor="#000000"
+      inactiveColor="#ffffff"
       // eslint-disable-next-line react-native/no-inline-styles
       barStyle={{backgroundColor: 'steelblue'}}>
       <BottomTabNavigator.Screen
@@ -41,7 +42,7 @@ const BottomsTabNavigator = () => {
         options={{
           // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+            <MaterialCommunityIcons name="home" color={color} size={28} />
           ),
         }}
       />
@@ -49,10 +50,9 @@ const BottomsTabNavigator = () => {
         name="Authenticate"
         component={AuthNavigator}
         options={{
-          headerShown: false,
           // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="account" color={color} size={20} />
+            <MaterialCommunityIcons name="account" color={color} size={28} />
           ),
         }}
       />
