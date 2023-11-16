@@ -1,9 +1,10 @@
 import React from 'react';
 import {SafeAreaView, Text, ScrollView, View, StyleSheet} from 'react-native';
-import {Button, Input, Icon} from '@rneui/themed';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {Button, Input} from '@rneui/themed';
 
-const Signup = () => {
+import Login from './Login';
+
+const Signup = ({navigation}) => {
   const submitForm = () => {
     console.log('Form Submitted');
   };
@@ -43,6 +44,7 @@ const Signup = () => {
               marginVertical: 10,
               marginBottom: 50,
             }}
+            onPress={() => navigation.navigate(Login)}
           />
         </View>
       </ScrollView>

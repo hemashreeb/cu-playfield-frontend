@@ -1,14 +1,10 @@
 import React from 'react';
-import {SafeAreaView, Text, View, StyleSheet, Alert} from 'react-native';
-import {Button, Input, Icon} from '@rneui/themed';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {SafeAreaView, Text, View, StyleSheet} from 'react-native';
+import {Button, Input} from '@rneui/themed';
 
-const Login = () => {
-  //const [value, setValue] = useState(0);
-  const submitForm = () => {
-    Alert('Form Submitted');
-  };
+import Signup from './Signup';
 
+const Login = ({navigation}) => {
   return (
     <SafeAreaView style={styles.grid}>
       <View style={styles.container}>
@@ -23,7 +19,6 @@ const Login = () => {
               marginHorizontal: 10,
               marginVertical: 10,
             }}
-            onPress={submitForm}
           />
           <Button
             title="Sign Up"
@@ -39,6 +34,7 @@ const Login = () => {
               marginHorizontal: 10,
               marginVertical: 10,
             }}
+            onPress={() => navigation.navigate(Signup)}
           />
         </View>
       </View>
